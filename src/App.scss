@@ -1,0 +1,46 @@
+.App {
+  .bar {
+    position: sticky;
+
+    z-index: 2 !important;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+
+    background: #030060;
+    // margin-bottom: 50px;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 32px;
+    align-items: center;
+  }
+  padding-bottom: 100px;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.head-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  // line-height: 27px;
+  text-decoration: none;
+  color: white;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./Assets/Fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+.content__padding {
+  width: 90%;
+  margin: auto;
+}
+
+// @import "~bootstrap/scss/bootstrap";

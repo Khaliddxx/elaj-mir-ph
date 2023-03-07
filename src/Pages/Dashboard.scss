@@ -1,0 +1,55 @@
+.orders {
+  padding-top: 48px;
+  .header-text {
+    text-align: center;
+  }
+  .received-btn,
+  .delivered-btn,
+  .booked-btn {
+    background-color: transparent;
+    border-radius: 16px;
+    border: 1.8px solid gray;
+    font-family: "Montserrat";
+    font-weight: 500;
+  }
+  .received-btn {
+    background-color: rgb(255, 234, 197);
+
+    border: 1.8px solid rgb(249, 162, 1);
+  }
+  .delivered-btn {
+    background-color: rgb(227, 255, 225);
+    border: 1.8px solid rgb(16, 245, 0);
+  }
+  .booked-btn {
+    background-color: rgb(251, 255, 181);
+    border: 1.8px solid rgb(242, 250, 88);
+  }
+  .addNew {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 131px;
+    height: 47px;
+    color: white;
+    background: #04b700;
+    border-radius: 8px;
+    border: none;
+    font-family: Montserrat;
+  }
+
+  .delete-btn {
+    border: none;
+    background-color: transparent;
+  }
+  .member-table {
+    margin-bottom: 24px !important;
+  }
+}
+
+.loginpls {
+  text-align: center;
+  margin-top: 240px;
+}
