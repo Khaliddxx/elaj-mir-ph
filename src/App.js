@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 
 import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 
 import { UserContext } from "./Context/UserContext";
 
@@ -72,8 +73,20 @@ function App() {
               )}
 
               {user.isAuthenticated && (
-                <Link className="head-text" to="/dashboard">
-                  Dashboard
+                <>
+                  <Link className="head-text" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </>
+              )}
+              {user.isAuthenticated && user.type == "deliveryManager" && (
+                <Link className="head-text" to="/register">
+                  Add Pharmacy
+                </Link>
+              )}
+              {user.isAuthenticated && user.type == "superAdmin" && (
+                <Link className="head-text" to="/approval">
+                  Approval
                 </Link>
               )}
               {user.isAuthenticated && (
@@ -85,8 +98,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route path="/register" element={<Register />} /> */}
+              <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             </Routes>
           </UserContext.Provider>
         </Router>
