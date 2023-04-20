@@ -43,7 +43,7 @@ const Register = () => {
       const body = JSON.stringify(newUser);
 
       const res = await axios.post(
-        "https://elaj-server.herokuapp.com/api/account/register",
+        "http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/account/register",
         body,
         config
       );

@@ -59,17 +59,23 @@ const Dashboard = () => {
 
   useEffect(() => {
     console.log(Auth);
-    axios.get(`https://elaj-server.herokuapp.com/api/orders`).then((res) => {
-      setOrders(res.data);
-      console.log(res.data);
-      setFiltered(true);
-    });
+    axios
+      .get(
+        `http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/orders`
+      )
+      .then((res) => {
+        setOrders(res.data);
+        console.log(res.data);
+        setFiltered(true);
+      });
   }, [temp]);
 
   const deleteOrder = (id) => {
     console.log("remove by id");
     axios
-      .post(`https://elaj-server.herokuapp.com/api/orders/remove/${id}`)
+      .post(
+        `http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/orders/remove/${id}`
+      )
       .then((res) => {
         setTemp(!temp);
       });
@@ -78,7 +84,7 @@ const Dashboard = () => {
     console.log("update order status");
     axios
       .post(
-        `https://elaj-server.herokuapp.com/api/orders/update-status/${id}/${status}`
+        `http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/orders/update-status/${id}/${status}`
       )
       .then((res) => {
         setTemp(!temp);

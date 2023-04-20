@@ -33,7 +33,7 @@ const Login = () => {
       const body = JSON.stringify(user);
 
       const res = await axios.post(
-        "https://elaj-server.herokuapp.com/api/account/login",
+        "http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/account/login",
         body,
         config
       );
