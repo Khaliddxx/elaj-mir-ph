@@ -3,6 +3,7 @@ import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
 import { useNavigate } from "react-router";
 import "./Login.scss";
+import { backend } from "../../Context/Backend";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,11 +33,7 @@ const Login = () => {
 
       const body = JSON.stringify(user);
 
-      const res = await axios.post(
-        "http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/account/login",
-        body,
-        config
-      );
+      const res = await axios.post(`${backend}api/account/login`, body, config);
       handleLogin(res.data.token, user.email, res.data.id, res.data.t);
       // console.log(UserContext);
       navigate("/dashboard");

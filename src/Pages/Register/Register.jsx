@@ -9,6 +9,7 @@ import axios from "axios";
 
 import "./Register.scss";
 import { UserContext } from "../../Context/UserContext";
+import { backend } from "../../Context/Backend";
 
 const Register = () => {
   const Auth = useContext(UserContext);
@@ -43,7 +44,7 @@ const Register = () => {
       const body = JSON.stringify(newUser);
 
       const res = await axios.post(
-        "http://elaj-env.eba-2mybvpfj.eu-west-3.elasticbeanstalk.com/api/account/register",
+        `${backend}api/account/register`,
         body,
         config
       );
@@ -56,26 +57,23 @@ const Register = () => {
 
   return (
     <>
-      {Auth.user.isAuthenticated && Auth.user.type === "deliveryManager" ? (
-        <div className="register-page">
-          {!loading ? (
-            <div class="box-form">
-              <div class="left">
-                <div class="overlay">
-                  <h1>Add a Pharmacy</h1>
-                  <p>
-                    Register a pharmacy here. Once done, the pharmacy can login
-                    the{" "}
-                    <a
-                      style={{ color: "white" }}
-                      href="https://store.elajsd.com"
-                    >
-                      pharmacy portal
-                    </a>{" "}
-                    and access all their benefits. In order for the pharmacy to
-                    get validated and appear in the market, contact Elaj's CTO
-                  </p>
-                  {/* <span>
+      {/* {Auth.user.isAuthenticated && Auth.user.type === "deliveryManager" ? ( */}
+      <div className="register-page">
+        {!loading ? (
+          <div class="box-form">
+            <div class="left">
+              <div class="overlay">
+                <h1>Add a Pharmacy</h1>
+                <p>
+                  Register a pharmacy here. Once done, the pharmacy can login
+                  the{" "}
+                  <a style={{ color: "white" }} href="https://store.elajsd.com">
+                    pharmacy portal
+                  </a>{" "}
+                  and access all their benefits. In order for the pharmacy to
+                  get validated and appear in the market, contact Elaj's CTO
+                </p>
+                {/* <span>
                 <p>login with social media</p>
                 <a href="#">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -85,57 +83,53 @@ const Register = () => {
                   Twitter
                 </a>
               </span> */}
-                </div>
               </div>
+            </div>
 
-              <div class="right">
-                <h5>Register</h5>
-                <p style={{ color: "transparent" }}>
-                  Don't have an account?
-                  <a style={{ color: "transparent" }} href="#">
-                    Creat Your Account
-                  </a>
-                  it takes less than a minute
-                </p>
-                <form onSubmit={(e) => onSubmit(e)}>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      name="name"
-                      value={name}
-                      onChange={(e) => onChange(e)}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      value={email}
-                      onChange={(e) => onChange(e)}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={password}
-                      onChange={(e) => onChange(e)}
-                      minLength="6"
-                    />
-                  </div>
+            <div class="right">
+              <h5>Register</h5>
+              <p style={{ color: "transparent" }}>
+                Don't have an account?
+                <a style={{ color: "transparent" }} href="#">
+                  Creat Your Account
+                </a>
+                it takes less than a minute
+              </p>
+              <form onSubmit={(e) => onSubmit(e)}>
+                <div>
                   <input
-                    className="submit-btn"
-                    type="submit"
-                    value="Register"
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    value={name}
+                    onChange={(e) => onChange(e)}
+                    required
                   />
-                </form>
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => onChange(e)}
+                    minLength="6"
+                  />
+                </div>
+                <input className="submit-btn" type="submit" value="Register" />
+              </form>
 
-                {/* <div class="remember-me--forget-password">
+              {/* <div class="remember-me--forget-password">
               <label>
                 <input type="checkbox" name="item" checked />
                 <span class="text-checkbox">Remember me</span>
@@ -143,21 +137,21 @@ const Register = () => {
               <p>forget password?</p>
             </div> */}
 
-                <br />
-              </div>
+              <br />
             </div>
-          ) : (
-            <h4 style={{ textAlign: "center", width: "80%", margin: "auto" }}>
-              Submitted! please inform the CTO to approve a pharmacy after
-              adding a 100 products!
-            </h4>
-          )}
-        </div>
-      ) : (
+          </div>
+        ) : (
+          <h4 style={{ textAlign: "center", width: "80%", margin: "auto" }}>
+            Submitted! please inform the CTO to approve a pharmacy after adding
+            a 100 products!
+          </h4>
+        )}
+      </div>
+      {/* ) : (
         <h1 className="loginpls">
           Delivery or Delivery manager <br /> Please log in 🔐
         </h1>
-      )}
+      )} */}
     </>
   );
 };
